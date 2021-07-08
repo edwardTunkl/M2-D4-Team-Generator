@@ -30,45 +30,48 @@
       integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
       crossorigin="anonymous"
     />
+    <style>
+      body {
+        background-color: beige;
+      }
+
+
+    </style>
+
   </head>
+
   <body>
+   
+      </script>
     <h1>Team Generator</h1>
-    <br>
-  <h2>List Of Names</h2>
-  
-    <!-- List -->
-    <ul class="list-group">
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        A list item
-        <span class="badge badge-primary badge-pill">14</span>
-      </li>
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        A second list item
-        <span class="badge badge-primary badge-pill">2</span>
-      </li>
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        A third list item
-        <span class="badge badge-primary badge-pill">1</span>
-      </li>
-    </ul>
     <br><br>
+
   <h2>Input Field</h2>
-  
     <!-- Input field -->
       <div class="input-group">
         <div class="input-group-prepend">
-          <span class="input-group-text">First and last name</span>
+          <span class="input-group-text">Enter name here</span>
         </div>
-        <input type="text" aria-label="First name" class="form-control">
-        <input type="text" aria-label="Last name" class="form-control">
+        <input id="candidate" type="text" aria-label="Name" class="form-control">
       </div>
+  <br>
 
       <!-- Submit Button  -->
+  
+      <button type="submit" class="btn btn-primary mb-2" onclick= "addName()" >Submit</button>
 
-      <button type="submit" class="btn btn-primary mb-2">Submit</button>
+    <br><br><br>
+
+
+  <h2>List Of Names</h2>
+  
+    <!-- List -->
+    <ul id="dynamic-list" class="list-group">   
+    </ul>
 
 <br><br><br><h2>Number of Teams</h2>
       <!-- Number of Teams -->
+
 
       <div class="input-group mb-3">
         <select class="custom-select" id="inputGroupSelect02">
@@ -76,6 +79,13 @@
           <option value="1">One</option>
           <option value="2">Two</option>
           <option value="3">Three</option>
+          <option value="4">Four</option>
+          <option value="5">Five</option>
+          <option value="6">Six</option>
+          <option value="7">Seven</option>
+          <option value="8">Eight</option>
+          <option value="9">Nine</option>
+          <option value="10">Ten</option>
         </select>
         <div class="input-group-append">
           <label class="input-group-text" for="inputGroupSelect02">Options</label>
@@ -98,29 +108,23 @@
       <li class="list-group-item">And a fifth one</li>
     </ul>
 
+    <script>
+      window.onload = function() {
+      addName()
+      
+      }
 
-
-<script>
-window.onload() {
-
-
-}
-
-const newName = function(new) {
- let unordered = document.querySelector("ul")
- let newOne = document.createElement("li")
- newOne.innerText = newStuff
- unordered.appendChild(new)
-
-
-
-
-
-
-
-</script>
-
-
+      const addName = function(){      
+      let ul = document.getElementById("dynamic-list")
+      let candidate = document.getElementById("candidate")
+      let li = document.createElement("li")
+      li.setAttribute("id", candidate.value)
+      li.appendChild(document.createTextNode(candidate.value))
+      ul.appendChild(li)
+    
+      }
+      
+    </script>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
