@@ -34,7 +34,10 @@
       body {
         background-color: beige;
       }
-
+      .col-3 {
+        min-height: 100px;
+        color: blue;
+      }
 
     </style>
 
@@ -88,19 +91,18 @@
       <label class="input-group-text" for="inputGroupSelect02">Options</label>
     </div>
   </div>
-   
-      <!-- List of Teams  -->
-  <br><h4>List of Teams</h4>
-
-    <ol id="newTeams" class="list-group mx-3">      
-    </ol>
 
 
-    
+<div class="container">
+  <div id="teamLists" class="row">
+
+  </div>
+</div>
+
       <!-- Assign Button -->
       <br><br><h2>Generate Teams</h2>
       
-      <button id="generatorButton" type="button" class="btn btn-primary btn-lg">Let`s go!!!</button>
+      <button id="generatorButton" type="button" class="btn btn-primary btn-lg">Assign</button>
       <br><br>
 
     </div>
@@ -121,23 +123,46 @@
     
       }
       
+    //   const numberOfTeams = function () {
+
+    //   teamCount= document.getElementById("selectValue").value
+    //   // console.log(teamCount)
+    //   let ol = document.getElementById("newTeams")
+    //  // let li = document.createElement("li") 
+    //   for (let i=1; i<=teamCount; i++){
+    //     let li = document.createElement("li")
+    //     li.innerText = `Team ${i}` 
+    //     ol.appendChild(li)
+    //   }
+    //   }
+
       const numberOfTeams = function () {
+        teamCount= document.getElementById("selectValue").value
+        let rowDiv = document.getElementById("teamLists")
+        for (let i=1; i<=teamCount; i++){
+        let teamDiv = document.createElement("div")
+        teamDiv.classList.add("col-3")
+        teamDiv.innerText = `Team ${i}`
+        rowDiv.appendChild(teamDiv)
+      }
+      }
 
-      teamCount= document.getElementById("selectValue").value
-      // console.log(teamCount)
-      let ol = document.getElementById("newTeams")
-      let li = document.createElement("li")
-      for (let i=1; i<=teamCount; i++){
-        li = document.createElement("li")
-        li.innerText = `Team ${i}` 
-        ol.appendChild(li)
-      }
-        
-      }
-      const generateTeams = function ( ){
+      const generateTeams = function (){
+        let nameList = document.querySelectorAll("li")
+        let names = []
+        for (let i = 0;i<nameList.length; i++){
+          names.push(nameList[i].id)
+        }
+        console.log(names)
+        let random = Math.floor(Math.random()*names.length)
+        console.log(random)
       
-
-
+        for (let i=0; i<random; i++){
+          let member = document
+        }
+      
+      
+      
       }
       
     </script>
