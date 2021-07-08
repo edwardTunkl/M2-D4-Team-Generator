@@ -63,7 +63,7 @@
 
 
   <h4>List Of Names</h4>
-    <ol id="dynamic-list" class="list-group mx-3 my-3 ">   
+    <ol id="dynamic-list" class="list-group my-3 ">   
     </ol>
 
 <br><br><br>
@@ -117,6 +117,7 @@
       let ol = document.getElementById("dynamic-list")
       let candidate = document.getElementById("candidate")
       let li = document.createElement("li")
+      li.classList.add("list-group-item")
       li.setAttribute("id", candidate.value)
       li.appendChild(document.createTextNode(candidate.value))
       ol.appendChild(li)
