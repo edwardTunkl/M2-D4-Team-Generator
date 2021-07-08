@@ -41,12 +41,9 @@
   </head>
 
   <body>
-   
-      </script>
-    <h1>Team Generator</h1>
+    <div class="container">
+     <h1 class="my-5">Team Generator</h1>
     <br><br>
-
-  <h2>Input Field</h2>
     <!-- Input field -->
       <div class="input-group">
         <div class="input-group-prepend">
@@ -54,74 +51,93 @@
         </div>
         <input id="candidate" type="text" aria-label="Name" class="form-control">
       </div>
-  <br>
+    <br>
 
       <!-- Submit Button  -->
-  
       <button type="submit" class="btn btn-primary mb-2" onclick= "addName()" >Submit</button>
 
     <br><br><br>
 
 
-  <h2>List Of Names</h2>
-  
-    <!-- List -->
-    <ul id="dynamic-list" class="list-group">   
-    </ul>
+  <h4>List Of Names</h4>
+    <ol id="dynamic-list" class="list-group mx-3 my-3 ">   
+    </ol>
 
-<br><br><br><h2>Number of Teams</h2>
-      <!-- Number of Teams -->
+<br><br><br>
+
+<!-- Number of Teams -->
+<h4>Number of Teams</h4>
+<!-- <label for="quantity">Quantity (between 1 and 5):</label>
+<input type="number" id="quantity" name="quantity" min="1" max="5">  -->
+
+  <div class="input-group mb-3">
+    <select id="selectValue" class="custom-select" id="inputGroupSelect02" onclick="numberOfTeams()">
+      <option selected>Please choose...</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+      <option value="4">Four</option>
+      <option value="5">Five</option>
+      <option value="6">Six</option>
+      <option value="7">Seven</option>
+      <option value="8">Eight</option>
+      <option value="9">Nine</option>
+      <option value="10">Ten</option>
+    </select>
+    <div class="input-group-append">
+      <label class="input-group-text" for="inputGroupSelect02">Options</label>
+    </div>
+  </div>
+   
+      <!-- List of Teams  -->
+  <br><h4>List of Teams</h4>
+
+    <ol id="newTeams" class="list-group mx-3">      
+    </ol>
 
 
-      <div class="input-group mb-3">
-        <select class="custom-select" id="inputGroupSelect02">
-          <option selected>Choose...</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-          <option value="4">Four</option>
-          <option value="5">Five</option>
-          <option value="6">Six</option>
-          <option value="7">Seven</option>
-          <option value="8">Eight</option>
-          <option value="9">Nine</option>
-          <option value="10">Ten</option>
-        </select>
-        <div class="input-group-append">
-          <label class="input-group-text" for="inputGroupSelect02">Options</label>
-        </div>
-      </div>
-
+    
       <!-- Assign Button -->
       <br><br><h2>Generate Teams</h2>
       
-      <button type="button" class="btn btn-primary btn-lg">Let`s go!!!</button>
+      <button id="generatorButton" type="button" class="btn btn-primary btn-lg">Let`s go!!!</button>
       <br><br>
 
-    <!-- List of Teams  -->
-<br><h2>List of Teams</h2>
-    <ul class="list-group">
-      <li class="list-group-item">An item</li>
-      <li class="list-group-item">A second item</li>
-      <li class="list-group-item">A third item</li>
-      <li class="list-group-item">A fourth item</li>
-      <li class="list-group-item">And a fifth one</li>
-    </ul>
-
+    </div>
     <script>
       window.onload = function() {
-      addName()
+     
+        document.getElementById("generatorButton").addEventListener("click", generateTeams())
       
       }
 
       const addName = function(){      
-      let ul = document.getElementById("dynamic-list")
+      let ol = document.getElementById("dynamic-list")
       let candidate = document.getElementById("candidate")
       let li = document.createElement("li")
       li.setAttribute("id", candidate.value)
       li.appendChild(document.createTextNode(candidate.value))
-      ul.appendChild(li)
+      ol.appendChild(li)
     
+      }
+      
+      const numberOfTeams = function () {
+
+      teamCount= document.getElementById("selectValue").value
+      // console.log(teamCount)
+      let ol = document.getElementById("newTeams")
+      let li = document.createElement("li")
+      for (let i=1; i<=teamCount; i++){
+        li = document.createElement("li")
+        li.innerText = `Team ${i}` 
+        ol.appendChild(li)
+      }
+        
+      }
+      const generateTeams = function ( ){
+      
+
+
       }
       
     </script>
